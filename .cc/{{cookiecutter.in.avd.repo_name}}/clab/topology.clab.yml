@@ -1,4 +1,4 @@
-name: bbag-clab
+name: evpn-vxlan-clab
 prefix: ""
 
 mgmt:
