@@ -1,0 +1,30 @@
+credentials:
+  default:
+    username: arista
+    password: arista
+
+transports:
+  default:
+    strict-key: false
+
+devices:
+
+{%- for spine in cookiecutter.in.evpn_vxlan_spine_inventory %}
+  {{ spine.hostname }}:
+    platform: arista_eos
+    address: {{ spine.management_ip.split('/')[0] }}
+    send-commands:
+    - show version
+    - show running-config
+    - show tech-support
+{%- endfor %}
+
+{%- for leaf in cookiecutter.in.evpn_vxlan_leaf_inventory %}
+  {{ leaf.hostname }}:
+    platform: arista_eos
+    address: {{ leaf.management_ip.split('/')[0] }}
+    send-commands:
+    - show version
+    - show running-config
+    - show tech-support
+{%- endfor %}
