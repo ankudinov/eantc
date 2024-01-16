@@ -1,6 +1,6 @@
 ---
 - name: Deploy Configs
-  hosts: EVPN_FABRIC
+  hosts: EVPN_VXLAN_FABRIC
   gather_facts: false
   tasks:
 
