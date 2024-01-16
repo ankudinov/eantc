@@ -112,3 +112,4 @@ clab/cv-onboarding-token
 # ingnore images and other files not to be uploaded to GitHub
 .gitignored/*
 !.gitignored/.gitkeep
+cmdo
