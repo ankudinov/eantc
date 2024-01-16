@@ -1,0 +1,32 @@
+---
+all:
+  children:
+
+    AVD_FABRIC:
+      children:
+
+        EVPN_VXLAN_FABRIC:
+          children:
+
+            EVPN_VXLAN_SPINES:
+              vars:
+                type: spine
+              hosts:
+{%- for spine in cookiecutter.in.evpn_vxlan_spine_inventory %}
+                {{ spine.hostname }}:
+                  ansible_host: {{ spine.management_ip.split('/')[0] }}
+{%- endfor %}
+
+            EVPN_VXLAN_LEAFS:
+              vars:
+                type: l3leaf
+              children:
+{%- for leaf in cookiecutter.in.evpn_vxlan_leaf_inventory %}
+  {%- set leaf_id_int = leaf.id | int %}
+  {%- if leaf_id_int % 2 != 0 %}
+                pod{{ leaf_id_int // 2 }}:
+                  hosts:
+  {%- endif %}
+                    {{ leaf.hostname }}:
+                      ansible_host: {{ leaf.management_ip.split('/')[0] }}
+{%- endfor %}

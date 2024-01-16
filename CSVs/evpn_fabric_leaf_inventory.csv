@@ -1,0 +1,5 @@
+id, hostname, management_ip, bgp_as, platform
+1, Leaf11-T3-3, 192.168.0.21/24, 65101, cEOS
+2, Leaf12-T3-4, 192.168.0.22/24, 65101, cEOS
+3, Leaf21-Jp-5, 192.168.0.23/24, 65102, cEOS
+4, Leaf22-Jp-6, 192.168.0.24/24, 65102, cEOS

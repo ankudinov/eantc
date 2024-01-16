@@ -1,0 +1,2 @@
+id, hostname, management_ip, bgp_as, platform
+1, Spine1-J-2, 192.168.0.11/24, 65100, cEOS

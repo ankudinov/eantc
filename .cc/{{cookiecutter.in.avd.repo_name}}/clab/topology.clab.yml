@@ -1,0 +1,32 @@
+name: bbag-clab
+prefix: ""
+
+mgmt:
+  network: custom_mgmt
+  ipv4-subnet: 192.168.0.0/24
+
+topology:
+  kinds:
+    ceos:
+      enforce-startup-config: true
+      image: ceos-lab:latest
+  defaults:
+    kind: ceos
+    startup-config: init-configs/ceos-init.cfg
+  nodes:
+    # EVPN-VXLAN
+{%- for spine in cookiecutter.in.evpn_vxlan_spine_inventory %}
+    {{ spine.hostname }}:
+      mgmt-ipv4: {{ spine.management_ip.split('/')[0] }}
+{%- endfor %}
+{%- for leaf in cookiecutter.in.evpn_vxlan_leaf_inventory %}
+    {{ leaf.hostname }}:
+      mgmt-ipv4: {{ leaf.management_ip.split('/')[0] }}
+{%- endfor %}
+
+
+  links:
+  # EVPN-VXLAN links
+{%- for link in cookiecutter.in.evpn_vxlan_cabling_plan %}
+  - endpoints: ["{{link.local_switch}}:eth{{link.local_interface[1:]}}", "{{link.remote_switch}}:eth{{link.remote_interface[1:]}}"]
+{%- endfor %}

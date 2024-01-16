@@ -1,0 +1,11 @@
+local_switch, local_interface, remote_switch, remote_interface
+
+Leaf11-T3-3, e1, Spine1-J-2, e1
+Leaf12-T3-4, e1, Spine1-J-2, e2
+Leaf21-Jp-5, e1, Spine1-J-2, e3
+Leaf22-Jp-6, e1, Spine1-J-2, e4
+
+Leaf11-T3-3, e47, Leaf12-T3-4, e47
+Leaf11-T3-3, e48, Leaf12-T3-4, e48
+Leaf21-Jp-5, e47, Leaf22-Jp-6, e47
+Leaf21-Jp-5, e48, Leaf22-Jp-6, e48
