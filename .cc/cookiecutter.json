@@ -1,0 +1,153 @@
+{
+    "in": {
+        "evpn_vxlan_leaf_inventory": [
+            {
+                "id": "1",
+                "hostname": "Leaf11-T3-3",
+                "management_ip": "192.168.0.21/24",
+                "bgp_as": "65101",
+                "platform": "cEOS",
+                "uplink_switches": [
+                    "Spine1-J-2"
+                ],
+                "uplink_switch_interfaces": [
+                    "Ethernet1"
+                ],
+                "uplink_interfaces": [
+                    "Ethernet1"
+                ],
+                "mlag_interfaces": [
+                    "Ethernet47",
+                    "Ethernet48"
+                ]
+            },
+            {
+                "id": "2",
+                "hostname": "Leaf12-T3-4",
+                "management_ip": "192.168.0.22/24",
+                "bgp_as": "65101",
+                "platform": "cEOS",
+                "uplink_switches": [
+                    "Spine1-J-2"
+                ],
+                "uplink_switch_interfaces": [
+                    "Ethernet2"
+                ],
+                "uplink_interfaces": [
+                    "Ethernet1"
+                ],
+                "mlag_interfaces": [
+                    "Ethernet47",
+                    "Ethernet48"
+                ]
+            },
+            {
+                "id": "3",
+                "hostname": "Leaf21-Jp-5",
+                "management_ip": "192.168.0.23/24",
+                "bgp_as": "65102",
+                "platform": "cEOS",
+                "uplink_switches": [
+                    "Spine1-J-2"
+                ],
+                "uplink_switch_interfaces": [
+                    "Ethernet3"
+                ],
+                "uplink_interfaces": [
+                    "Ethernet1"
+                ],
+                "mlag_interfaces": [
+                    "Ethernet47",
+                    "Ethernet48"
+                ]
+            },
+            {
+                "id": "4",
+                "hostname": "Leaf22-Jp-6",
+                "management_ip": "192.168.0.24/24",
+                "bgp_as": "65102",
+                "platform": "cEOS",
+                "uplink_switches": [
+                    "Spine1-J-2"
+                ],
+                "uplink_switch_interfaces": [
+                    "Ethernet4"
+                ],
+                "uplink_interfaces": [
+                    "Ethernet1"
+                ],
+                "mlag_interfaces": [
+                    "Ethernet47",
+                    "Ethernet48"
+                ]
+            }
+        ],
+        "avd": {
+            "repo_name": "avd_inventory",
+            "mgmt_interface": "Management0"
+        },
+        "evpn_vxlan_spine_inventory": [
+            {
+                "id": "1",
+                "hostname": "Spine1-J-2",
+                "management_ip": "192.168.0.11/24",
+                "bgp_as": "65100",
+                "platform": "cEOS"
+            }
+        ],
+        "evpn_vxlan_cabling_plan": [
+            {
+                "local_switch": "Leaf11-T3-3",
+                "local_interface": "e1",
+                "remote_switch": "Spine1-J-2",
+                "remote_interface": "e1"
+            },
+            {
+                "local_switch": "Leaf12-T3-4",
+                "local_interface": "e1",
+                "remote_switch": "Spine1-J-2",
+                "remote_interface": "e2"
+            },
+            {
+                "local_switch": "Leaf21-Jp-5",
+                "local_interface": "e1",
+                "remote_switch": "Spine1-J-2",
+                "remote_interface": "e3"
+            },
+            {
+                "local_switch": "Leaf22-Jp-6",
+                "local_interface": "e1",
+                "remote_switch": "Spine1-J-2",
+                "remote_interface": "e4"
+            },
+            {
+                "local_switch": "Leaf11-T3-3",
+                "local_interface": "e47",
+                "remote_switch": "Leaf12-T3-4",
+                "remote_interface": "e47"
+            },
+            {
+                "local_switch": "Leaf11-T3-3",
+                "local_interface": "e48",
+                "remote_switch": "Leaf12-T3-4",
+                "remote_interface": "e48"
+            },
+            {
+                "local_switch": "Leaf21-Jp-5",
+                "local_interface": "e47",
+                "remote_switch": "Leaf22-Jp-6",
+                "remote_interface": "e47"
+            },
+            {
+                "local_switch": "Leaf21-Jp-5",
+                "local_interface": "e48",
+                "remote_switch": "Leaf22-Jp-6",
+                "remote_interface": "e48"
+            }
+        ]
+    },
+    "out": {},
+    "_copy_without_render": [
+        "*.j2"
+    ]
+}
