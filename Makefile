@@ -27,3 +27,7 @@ diff_evpn_vxlan: ## Show the diff between running config and designed config
 .PHONY: validate_evpn_vxlan
 validate_evpn_vxlan: ## validate the network state
 	cd $(CURRENT_DIR)/avd_inventory; ansible-playbook playbooks/validate_evpn_fabric.yml
+
+.PHONY: cmdo
+cmdo: ## get cmdo snapshot
+	./cmdo -i $(CURRENT_DIR)/avd_inventory/cmdo_inventory.yml -t
