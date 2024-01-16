@@ -17,6 +17,8 @@ devices:
     - show version
     - show running-config
     - show tech-support
+    - show bgp evpn summary
+    - show ip bgp summary
 {%- endfor %}
 
 {%- for leaf in cookiecutter.in.evpn_vxlan_leaf_inventory %}
@@ -27,4 +29,6 @@ devices:
     - show version
     - show running-config
     - show tech-support
+    - show bgp evpn summary
+    - show ip bgp summary
 {%- endfor %}

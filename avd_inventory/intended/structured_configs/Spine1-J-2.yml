@@ -101,7 +101,7 @@ local_users:
 - name: arista
   privilege: 15
   role: network-admin
-  sha512_password: $6$GKtiaYx/xjqAior9$fsG/vyVusr0LSPYaFjLyQze0JNjqQT58iDYm8QMO2CxTUQZLfOzJroJN.jW1BNiMzPhYqYBtEc00tClwDjJwH1
+  sha512_password: $6$.8yi0wjUWp9Pe8//$cScih8rImaeAYV.1xIrxWutp2lgSVU9otJ.xyYU.U.DZbZBIGByUE4.iSqx15kWCMBK3lZrrn9OfUTD47h.9a0
 vrfs:
 - name: MGMT
   ip_routing: false
